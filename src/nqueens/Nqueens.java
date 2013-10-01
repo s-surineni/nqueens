@@ -24,6 +24,7 @@ static int[][] Arr=new int[4][4];
         System.out.println(nsize);
         Nqueens no=new Nqueens();
         no.Display(Arr);
+        no.solve(Arr);
         
         
     }
@@ -37,6 +38,22 @@ static int[][] Arr=new int[4][4];
     }
     
     void solve(int[][] Arr){
-        //void solvert()
+        solveRecu(Arr,0);
+    }
+    void solveRecu(int[][] Arr,int col){
+        for(int trk=0;trk<4;trk++){
+            for(int trk1=0;trk1<trk;trk++){
+                if(Arr[col][trk1]==1){
+                    continue;
+                }
+                int rowt=trk;
+                for(int trk2=col-1;trk2>=0&&rowt>=0;trk2--,rowt--){
+                    if(Arr[trk2][rowt]==1){
+                        continue;
+                    }
+                }
+            }
+            
+        }
     }
 }
