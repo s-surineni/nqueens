@@ -13,21 +13,26 @@ import java.io.InputStreamReader;
  * @author vinnu
  */
 public class Nqueens {
-static int[][] Arr=new int[4][4];
+int[][] Arr=new int[4][4];
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        System.out.println("input the value of n");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int nsize=Integer.parseInt(br.readLine());
-        System.out.println(nsize);
-        Nqueens no=new Nqueens();
-        no.Display(Arr);
-        no.solve(Arr);
-        
+        Nqueens obj=new Nqueens();
+        obj.start();
         
     }
+    
+    void start(){
+        for(int colc=0;colc<4;colc++){
+            checkIC(colc);
+        }
+    }
+    
+    void checkIC(int colc){
+        
+    }
+    
     void Display(int[][] Arr){
         for(int trk=0;trk<4;trk++){
          for(int trk1=0;trk1<4;trk1++)   {
