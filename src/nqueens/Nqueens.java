@@ -30,7 +30,13 @@ int[][] Arr=new int[4][4];
     }
     
     void checkIC(int colc){
-        
+        for(int tr=0;tr<4;tr++){//this iterates through elements in a loop
+            for(int fr=0;fr<tr;fr++){//this for checking whether elements are in a row
+                if(Arr[colc][fr]==1){
+                    
+                }
+            }
+        }
     }
     
     void Display(int[][] Arr){
