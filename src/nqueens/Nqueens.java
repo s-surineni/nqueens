@@ -35,9 +35,7 @@ int[][] Arr=new int[4][4];
     void checkIC(int colc){//this function is for checking in a column
         for(int tr=0;tr<4;tr++){//this iterates through elements in a row
             boolean truth=isSafe(tr, colc);
-            if(tr==1&&colc==1){
-                    System.out.println("printing boolean returned  " + truth);
-                }
+            
             if(truth){
                 
                 
