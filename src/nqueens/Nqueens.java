@@ -36,6 +36,7 @@ int[][] Arr=new int[4][4];
                 Arr[colc][tr]=1;
             }
             
+            
         }
     }
     
@@ -48,28 +49,8 @@ int[][] Arr=new int[4][4];
         }
     }
     
-    void solve(int[][] Arr){
-        solveRecu(Arr,0);
-    }
-    void solveRecu(int[][] Arr,int col){
-        for(int trk=0;trk<4;trk++){
-            for(int trk1=0;trk1<trk;trk++){
-                if(Arr[col][trk1]==1){
-                    continue;
-                }
-                int rowt=trk;
-                for(int trk2=col-1;trk2>=0&&rowt>=0;trk2--,rowt--){
-                    if(Arr[trk2][rowt]==1){
-                        continue;
-                    }
-                }
-            }
-            
-        }
-    }
-    
     boolean isSafe(int colc,int tr){
-        for(int fr=0;fr<tr;fr++){//this for checking whether elements are in a row
+        for(int fr=0;fr<=tr;fr++){//this for checking whether elements are in a row
                 if(Arr[fr][colc]==1){
                     return false;
                 }
@@ -86,6 +67,7 @@ int[][] Arr=new int[4][4];
                     return false;
                 }
             }
+            
             return true;
     }
 }
