@@ -26,13 +26,21 @@ int[][] Arr=new int[4][4];
     void start(){
         for(int colc=0;colc<4;colc++){
             checkIC(colc);
+            Display(Arr);
+            System.out.println("in checkic");
         }
         Display(Arr);
     }
     
     void checkIC(int colc){//this function is for checking in a column
         for(int tr=0;tr<4;tr++){//this iterates through elements in a row
-            if(isSafe(tr,colc)){
+            boolean truth=isSafe(tr, colc);
+            if(tr==1&&colc==1){
+                    System.out.println("printing boolean returned  " + truth);
+                }
+            if(truth){
+                
+                
                 Arr[tr][colc]=1;
                 return;
             }           
@@ -41,7 +49,7 @@ int[][] Arr=new int[4][4];
     
     boolean isSafe(int tr,int colc){
         for(int fr=tr,clm=0;clm<colc;clm++){//this for checking whether elements are in a row
-                if(Arr[fr][clm]==1){
+                if(Arr[fr][clm]==1){//here we keep row constant and increment column value to check in that row
                     return false;
                 }
             }
@@ -50,7 +58,7 @@ int[][] Arr=new int[4][4];
                 if(Arr[sr][ud]==1){
                     return false;
                 }
-            }
+                            }
             int sr2=tr+1;//this also saves the value of current row
             for(int ld=colc-1;ld>=0&&sr2<4;ld--,sr2++){
                 if(Arr[sr2][ld]==1){
