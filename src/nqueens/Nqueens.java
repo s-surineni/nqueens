@@ -27,15 +27,15 @@ int[][] Arr=new int[4][4];
         for(int colc=0;colc<4;colc++){
             checkIC(colc);
         }
+        Display(Arr);
     }
     
-    void checkIC(int colc){
-        for(int tr=0;tr<4;tr++){//this iterates through elements in a loop
-            for(int fr=0;fr<tr;fr++){//this for checking whether elements are in a row
-                if(Arr[colc][fr]==1){
-                    
-                }
+    void checkIC(int colc){//this function is for checking in a column
+        for(int tr=0;tr<4;tr++){//this iterates through elements in a row
+            if(isSafe(colc,tr)){
+                Arr[colc][tr]=1;
             }
+            
         }
     }
     
@@ -66,5 +66,26 @@ int[][] Arr=new int[4][4];
             }
             
         }
+    }
+    
+    boolean isSafe(int colc,int tr){
+        for(int fr=0;fr<tr;fr++){//this for checking whether elements are in a row
+                if(Arr[fr][colc]==1){
+                    return false;
+                }
+            }
+            int sr=tr-1;//this saves the value of current row
+            for(int ud=colc-1;ud>=0&&sr>=0;ud--,sr--){//this loop checks for upper diagonal
+                if(Arr[sr][ud]==1){
+                    return false;
+                }
+            }
+            int sr2=tr+1;//this also saves the value of current row
+            for(int ld=colc-1;ld>=0&&sr2<4;ld--,sr2++){
+                if(Arr[sr2][ld]==1){
+                    return false;
+                }
+            }
+            return true;
     }
 }
