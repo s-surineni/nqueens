@@ -24,6 +24,7 @@ int[][] Arr=new int[4][4];
     }
     
     void start(){
+        
         for(int colc=0;colc<4;colc++){
             checkIC(colc);
             Display(Arr);
@@ -32,17 +33,26 @@ int[][] Arr=new int[4][4];
         Display(Arr);
     }
     
-    void checkIC(int colc){//this function is for checking in a column
+    boolean checkIC(int colc){//this function is for checking in a column
+        if(colc>3){
+            return true;
+        }
         for(int tr=0;tr<4;tr++){//this iterates through elements in a row
-            boolean truth=isSafe(tr, colc);
             
-            if(truth){
+            
+            if(isSafe(tr, colc)){
                 
                 
                 Arr[tr][colc]=1;
-                return;
+                if(checkIC(colc+1)==true)//got an error when checkIC(colc+1)==false was here
+                {
+                  return true;  //got an error when Arr[tr][colc]=0 was here
+                }
+                Arr[tr][colc]=0;
+                
             }           
         }
+        return false;
     }
     
     boolean isSafe(int tr,int colc){
