@@ -34,8 +34,11 @@ int[][] Arr=new int[4][4];
     }
     
     boolean checkIC(int colc){//this function is for checking in a column
+        Display(Arr);
+        System.out.println("in checkic");
+        
         if(colc>3){
-            return true;
+            store();
         }
         for(int tr=0;tr<4;tr++){//this iterates through elements in a row
             
@@ -86,5 +89,9 @@ int[][] Arr=new int[4][4];
         }
     }
     
+    void store(){
+        int[][] Arr1=new int[4][4];
+        Arr1=Arr;
+    }
     
 }
