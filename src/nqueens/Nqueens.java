@@ -13,7 +13,9 @@ import java.io.InputStreamReader;
  * @author vinnu
  */
 public class Nqueens {
+    int nArr=0;
 int[][] Arr=new int[4][4];
+int[][][] dA3=new int[2][4][4];
     /**
      * @param args the command line arguments
      */
@@ -24,13 +26,15 @@ int[][] Arr=new int[4][4];
     }
     
     void start(){
-        
-        for(int colc=0;colc<4;colc++){
+        int colc=0;
+       // for(int colc=0;colc<4;colc++){
             checkIC(colc);
-            Display(Arr);
-            System.out.println("in checkic");
-        }
-        Display(Arr);
+            //Display(Arr);
+            //System.out.println("in start");
+        //}
+        //Display(Arr);
+        display3();
+        
     }
     
     boolean checkIC(int colc){//this function is for checking in a column
@@ -38,7 +42,9 @@ int[][] Arr=new int[4][4];
         System.out.println("in checkic");
         
         if(colc>3){
+            System.out.println("store called");
             store();
+            return false;
         }
         for(int tr=0;tr<4;tr++){//this iterates through elements in a row
             
@@ -55,6 +61,7 @@ int[][] Arr=new int[4][4];
                 
             }           
         }
+       // System.out.println("when come " + colc);
         return false;
     }
     
@@ -90,8 +97,26 @@ int[][] Arr=new int[4][4];
     }
     
     void store(){
-        int[][] Arr1=new int[4][4];
-        Arr1=Arr;
+        
+        for(int rt=0;rt<4;rt++){
+            for(int ct=0;ct<4;ct++){
+                dA3[nArr][rt][ct]=Arr[rt][ct];
+            }
+        }
+        nArr++;
     }
     
+    void display3(){
+        System.out.println("in 3display");
+        for(int d1=0;d1<2;d1++){
+        for(int d2=0;d2<4;d2++){
+            for(int d3=0;d3<4;d3++){
+            System.out.print( dA3[d1][d2][d3]+" ");
+        }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println();
+    }
+    }
 }
