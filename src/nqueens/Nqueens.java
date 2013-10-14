@@ -16,6 +16,7 @@ public class Nqueens {
     int nArr=0;
 int[][] Arr=new int[4][4];
 int[][][] dA3=new int[2][4][4];
+
     /**
      * @param args the command line arguments
      */
@@ -104,6 +105,7 @@ int[][][] dA3=new int[2][4][4];
             }
         }
         nArr++;
+//        void corsArr();
     }
     
     void display3(){
@@ -118,5 +120,16 @@ int[][][] dA3=new int[2][4][4];
         System.out.println();
         System.out.println();
     }
+    }
+    
+    void corsArr(){
+        int[][][] cA=new int [nArr][4][4];
+        for(int trk=0;trk<nArr;nArr++){
+            cA[trk][4][4]=dA3[trk][4][4];
+        }
+        cfDup(cA);
+    }
+    void cfDup(int[][][] cA){
+        
     }
 }
